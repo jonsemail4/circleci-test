@@ -10,6 +10,6 @@
     },
     "scripts": {
         "start": "echo 1",
-        "test": "echo 2"
+        "test": "echo I got $variable"
     }
 }
