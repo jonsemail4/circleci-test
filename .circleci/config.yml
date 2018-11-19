@@ -3,6 +3,7 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
+
 jobs:
   build:
     docker:
@@ -57,7 +58,7 @@ workflows:
   version: 2
   do_all:
     jobs:
-      - build:
+      - build
       - other:
           requires:
             - build
