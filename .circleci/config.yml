@@ -35,7 +35,8 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: "variable=$variable && echo $variable && yarn test"
+      - run:
+          command: "variable=$variable && echo $variable && yarn test"
   other:
     docker:
       # specify the version you desire here
