@@ -54,11 +54,11 @@ jobs:
       # run tests!
       - run: yarn test
 
-workflows:
-  version: 2
-  do_all:
-    jobs:
-      - build
-      - other:
-          requires:
-            - build
+# workflows:
+#   version: 2
+#   do_all:
+#     jobs:
+#       - build
+#       - other:
+#           requires:
+#             - build
