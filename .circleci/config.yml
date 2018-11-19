@@ -35,16 +35,30 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run:
-          command: "echo $THEVARIABLE"
+      - run: export variable && yarn test
+  other:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:10.13
+      
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
 
       # run tests!
-      - run:
-          command: echo $THEVARIABLE
+      - run: echo xyz
 
-      # run tests!
-      - run: echo $THEVARIABLE
-          
-          # run tests!
-      - run:
-          command: "export variable=$THEVARIABLE && echo $variable && yarn test"
+workflows:
+  version: 2
+  do_all:
+    jobs:
+      - build
+      - other:
+          requires:
+            - build
