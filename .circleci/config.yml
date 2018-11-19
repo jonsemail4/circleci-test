@@ -36,7 +36,7 @@ jobs:
         
       # run tests!
       - run:
-          command: "variable=$variable && echo $variable && yarn test"
+          command: "variable=$thevariable && echo $variable && yarn test"
   other:
     docker:
       # specify the version you desire here
