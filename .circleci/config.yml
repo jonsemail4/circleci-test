@@ -52,7 +52,7 @@ jobs:
       - checkout
 
       # run tests!
-      - run: yarn test
+      - run: echo xyz
 
 workflows:
   version: 2
