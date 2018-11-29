@@ -33,6 +33,36 @@ jobs:
           paths:
             - cache
           key: cache-1
+  build-with-params:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:10.13
+      
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - cache-$param
+
+      - run: echo "I am a parameter $param"
+
+      - run: if [[ -e cache ]]; then echo "Cache restored"; else echo "No cache"; fi
+
+      - run: mkdir -p cache
+
+      - save_cache:
+          paths:
+            - cache
+          key: cache-$param
   other:
     docker:
       # specify the version you desire here
