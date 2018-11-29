@@ -51,7 +51,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - cache-$param
+          - cache-{{ .Environment.param }}
 
       - run: echo "I am a parameter $param"
 
@@ -62,7 +62,7 @@ jobs:
       - save_cache:
           paths:
             - cache
-          key: cache-$param
+          key: cache-{{ .Environment.param }}
   other:
     docker:
       # specify the version you desire here
