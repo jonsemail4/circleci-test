@@ -27,7 +27,7 @@ jobs:
 
       - run: if [[ -e cache ]]; then echo "Cache restored"; else echo "No cache"; fi
 
-      - run: mkdir cache
+      - run: mkdir -p cache
 
       - save_cache:
           paths:
